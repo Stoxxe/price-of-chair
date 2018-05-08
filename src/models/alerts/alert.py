@@ -5,8 +5,6 @@ from src.common.database import Database
 import src.models.alerts.constants as AlertConstants
 from src.models.items.item import Item
 
-__author__ = 'jslvtr'
-
 
 class Alert(object):
     def __init__(self, user_email, price_limit, item_id, active=True, last_checked=None, _id=None):
