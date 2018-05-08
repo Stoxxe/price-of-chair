@@ -4,4 +4,4 @@ import os
 __author__ = 'stoxxe'
 
 DEBUG = False
-ADMINS = frozenset([os.environ.get('MAILGUN_API_KEY')])
+ADMINS = frozenset([os.environ.get('ADMIN_EMAIL')])
