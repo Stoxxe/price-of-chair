@@ -1,6 +1,6 @@
 from flask import Blueprint
 
-__author__ = 'jslvtr'
+__author__ = 'stoxxe'
 
 
 item_blueprint = Blueprint('items', __name__)

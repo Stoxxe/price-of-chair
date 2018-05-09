@@ -4,7 +4,7 @@ from src.models.alerts.alert import Alert
 from src.models.items.item import Item
 import src.models.users.decorators as user_decorators
 
-__author__ = 'jslvtr'
+__author__ = 'stoxxe'
 
 alert_blueprint = Blueprint('alerts', __name__)
 

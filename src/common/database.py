@@ -1,7 +1,7 @@
 import os
 import pymongo
 
-__author__ = 'jslvtr'
+__author__ = 'stoxxe'
 
 
 class Database(object):

@@ -4,7 +4,7 @@ from flask import Blueprint, render_template, request, redirect, url_for
 
 from src.models.stores.store import Store
 
-__author__ = 'jslvtr'
+__author__ = 'stoxxe'
 
 
 store_blueprint = Blueprint('stores', __name__)

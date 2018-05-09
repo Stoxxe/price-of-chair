@@ -4,7 +4,7 @@ from src.models.users.user import User
 import src.models.users.errors as UserErrors
 import src.models.users.decorators as user_decorators
 
-__author__ = 'jslvtr'
+__author__ = 'stoxxe'
 
 
 user_blueprint = Blueprint('users', __name__)

@@ -6,7 +6,7 @@ from src.common.database import Database
 import src.models.items.constants as ItemConstants
 from src.models.stores.store import Store
 
-__author__ = 'jslvtr'
+__author__ = 'stoxxe'
 
 
 class Item(object):
@@ -27,10 +27,15 @@ class Item(object):
         content = request.content
         soup = BeautifulSoup(content, "html.parser")
         element = soup.find(self.tag_name, self.query)
-        string_price = element.text.strip()
+        try:
+            string_price = element.text.strip()
+        except AttributeError:
+            string_price = "0.0"
+        else:
+            pass
 
-        pattern = re.compile("(\d+.\d+)")
-        match = pattern.search(string_price)
+        pattern = re.compile("(\d+.\d+)|(\d+,\d+)")
+        match = pattern.search(string_price.replace(',', '.'))
         self.price = float(match.group())
 
         return self.price

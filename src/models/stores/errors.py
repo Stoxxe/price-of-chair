@@ -1,4 +1,4 @@
-__author__ = 'jslvtr'
+__author__ = 'stoxxe'
 
 
 class StoreException(Exception):

@@ -1,7 +1,7 @@
 from passlib.hash import pbkdf2_sha512
 import re
 
-__author__ = 'jslvtr'
+__author__ = 'stoxxe'
 
 
 class Utils(object):

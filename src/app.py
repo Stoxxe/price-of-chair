@@ -1,7 +1,7 @@
 from flask import Flask, render_template
 from src.common.database import Database
 
-__author__ = 'jslvtr'
+__author__ = 'stoxxe'
 
 
 app = Flask(__name__)

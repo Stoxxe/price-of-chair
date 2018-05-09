@@ -1,6 +1,6 @@
 # Pricing Service
 
-Forked version by Stoxxe
+Forked version with minor additional features by Stoxxe - More info on alerts, home screen updated when logged in, handles comma versus dots in prices and fix for store query matching.
 
 This is an application built to allow the periodic scanning of online webstores, to notify users of changes in prices of items they select.
 

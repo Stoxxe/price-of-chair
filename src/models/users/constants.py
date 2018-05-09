@@ -1,3 +1,3 @@
-__author__ = 'jslvtr'
+__author__ = 'stoxxe'
 
 COLLECTION = 'users'

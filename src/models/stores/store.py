@@ -1,9 +1,10 @@
 import uuid
+import re
 from src.common.database import Database
 import src.models.stores.constants as StoreConstants
 import src.models.stores.errors as StoreErrors
 
-__author__ = 'jslvtr'
+__author__ = 'stoxxe'
 
 
 class Store(object):
@@ -50,14 +51,10 @@ class Store(object):
 
     @classmethod
     def find_by_url(cls, url):
-        """
-        Return a store from a url like "http://www.johnlewis.com/item/sdfj4h5g4g21k.html"
-        :param url: The item's URL
-        :return: a Store, or raises a StoreNotFoundException if no store matches the URL
-        """
-        for i in range(0, len(url)+1):
-            try:
-                store = cls.get_by_url_prefix(url[:i])
-                return store
-            except:
-                raise StoreErrors.StoreNotFoundException("The URL Prefix used to find the store didn't give us any results!")
+        pattern = re.compile(r'^(?P<url_prefix>[^:]*://[^/]+)')
+        match = pattern.match(url)
+        if match:
+            return cls.get_by_url_prefix(match.group('url_prefix'))
+        raise StoreErrors.StoreNotFoundError(
+            "No store with the specified URL {} found.".format(url)
+        )

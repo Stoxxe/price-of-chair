@@ -5,7 +5,7 @@ import src.models.users.errors as UserErrors
 import src.models.users.constants as UserConstants
 from src.models.alerts.alert import Alert
 
-__author__ = 'jslvtr'
+__author__ = 'stoxxe'
 
 
 class User(object):
