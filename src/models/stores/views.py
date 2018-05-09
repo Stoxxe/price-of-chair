@@ -4,6 +4,8 @@ from flask import Blueprint, render_template, request, redirect, url_for
 
 from src.models.stores.store import Store
 
+import src.models.users.decorators as user_decorators
+
 __author__ = 'stoxxe'
 
 
@@ -17,6 +19,7 @@ def index():
 
 
 @store_blueprint.route('/new', methods=['GET', 'POST'])
+@user_decorators.requires_admin_permissions
 def create_store():
     if request.method == 'POST':
         name = request.form['name']
@@ -25,6 +28,8 @@ def create_store():
         query = json.loads(request.form['query'])
 
         Store(name, url_prefix, tag_name, query).save_to_mongo()
+
+        return redirect(url_for('.index'))
 
     # What happens if it's a GET request
     return render_template("stores/new_store.jinja2")
@@ -56,6 +61,7 @@ def edit_store(store_id):
 @store_blueprint.route('/delete/<string:store_id>')
 def delete_store(store_id):
     Store.get_by_id(store_id).delete()
+    return redirect(url_for('.index'))
 
 
 @store_blueprint.route('/<string:store_id>')
